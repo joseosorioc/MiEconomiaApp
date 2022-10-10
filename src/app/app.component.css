@@ -1,0 +1,33 @@
+
+section {
+  font-family: var(--font-family);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+}
+
+
+
+main {
+  flex: 1;
+  padding: 2rem;
+  color: #fff;
+  background:#17212f;
+  display: flex;
+  flex-direction: column;
+}
+
+main h1 {
+  margin-bottom: 1rem;
+}
+
+main .copyright {
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+main .copyright span {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}

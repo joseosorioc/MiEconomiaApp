@@ -1,0 +1,118 @@
+
+  <nav  [ngClass]="{'nav-move' : minimizedBar === true }" >
+    <div class="sidebar-top">
+      <span class="shrink-btn" (click)="moveSidebar();">
+        <i  [ngClass]=" minimizedBar ? 'pi pi-angle-right' : 'pi pi-angle-left' "></i>
+      </span>
+
+
+      <h2 [hidden]="minimizedBar">My Economy</h2>
+      <span class="fa-solid fa-coins logo"></span>
+    </div>
+
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" [hidden]="minimizedBar" placeholder="Quick Search ...">
+    </div>
+
+    <div class="sidebar-links">
+      <ul>
+        <li class="tooltip-element active-tab" data-tooltip="0">
+          <a href="#" class="active" data-active="0">
+            <div class="icon">
+              <i class="fa-solid fa-floppy-disk"></i>
+              <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Save Incomes/Expenses</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="#" data-active="1">
+            <div class="icon">
+              <i class="fa-solid fa-chart-simple"></i>
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Statistics</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="#" data-active="2">
+            <div class="icon">
+              <i class="fa-solid fa-calendar-days"></i>
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Shedulend payments</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="#" data-active="3">
+            <div class="icon">
+              <i class="fa-solid fa-money-bills"></i>
+              <i class="fa-solid fa-money-bills"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Budget</span>
+          </a>
+        </li>
+
+        <li class="tooltip-element" data-tooltip="4">
+          <a href="#" data-active="4">
+            <div class="icon">
+              <i class="fa-solid fa-list"></i>
+              <i class="fa-solid fa-list"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Shopping list</span>
+          </a>
+        </li>
+      </ul>
+
+      <h4 [hidden]="minimizedBar">IA Recomendations</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="#" data-active="5">
+            <div class="icon">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Help</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="#" data-active="6">
+            <div class="icon">
+              <i class="fa-solid fa-gear"></i>
+              <i class="fa-solid fa-gear"></i>
+            </div>
+            <span class="link" [hidden]="minimizedBar">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class="fa-solid fa-user"></i>
+      </a>
+              <div class="admin-user tooltip-element" data-tooltip="1">
+                <div class="admin-profile hide">
+
+                  <div class="admin-info">
+                    <h3>Jose Osorio</h3>
+                    <h5>Admin</h5>
+                  </div>
+                </div>
+                <a href="#" class="log-out">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+               </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Jose Osorio</span>
+        <span>Salir</span>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
