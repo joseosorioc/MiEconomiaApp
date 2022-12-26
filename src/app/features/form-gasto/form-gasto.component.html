@@ -1,7 +1,61 @@
 <h1>Save Income And Expenses</h1>
 
 <div class="card">
-  <form id="form-gasto">
-    <input type="number" id="precio" name="precio">
+  <form id="form-gasto" [formGroup]="formIncomesOrExpenses" >
+    <div class="card mt-7">
+     <!--  <h5></h5>-->
+      <div class="formgrid grid">
+          <div class="field col-12 md:col-6">
+              <label for="date" style="margin-left: 0.8rem;">Date</label>
+              <p-calendar [showIcon]="true" id="date" formControlName="date" [style]="{'width':'25rem'}" class="w-full"
+               dateFormat="dd/mm/yy"></p-calendar>
+          </div>
+
+          <div class="field col-12 md:col-6">
+              <label for="amount">Amount</label>
+              <p-inputNumber id="amount" [style]="{'width':'30rem'}" [showButtons]="true" class="w-full" buttonLayout="horizontal"
+               inputId="amount" spinnerMode="horizontal" [step]="500" decrementButtonClass="p-button-danger"
+               incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" formControlName="amount"
+               decrementButtonIcon="pi pi-minus" mode="currency" currency="COP" >
+              </p-inputNumber>
+
+          </div>
+          <div class="field col-12 md:col-6">
+            <!-- agregar selector -->
+              <label for="category">Category</label>
+              <select id="category" formControlName="category" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+                <option>Income</option>
+                <option>Expense</option>
+              </select>
+          </div>
+
+          <div class="field col-12 md:col-6">
+              <label for="account">Account</label>
+              <select id="account" formControlName="account" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+                <option>Cash</option>
+                <option>Cards</option>
+                <option>Accounts</option>
+            </select>
+          </div>
+
+          <div class="field col-12 md:col-12">
+            <label for="type">Type</label>
+            <select id="type" formControlName="type" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+                  <option>Income</option>
+                  <option>Expense</option>
+           </select>
+          </div>
+
+          <div class="field col-12 md:col-12">
+            <label for="note">Note</label>
+            <textarea id="note" type="text" formControlName="note" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+          </div>
+
+      </div>
+  </div>
+
+        <button pButton type="button" label="Save" class="p-button-primary mt-2"
+         icon="pi pi-save" style="width: 15rem; margin-left: 18rem;" iconPos="right"></button>
+
   </form>
 </div>
