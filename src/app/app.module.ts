@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
+import { Button, ButtonModule } from 'primeng/button';
 
 import { AppComponent } from './app.component';
-import { FormGastoModule } from './features/form-gasto/form-gasto.module';
 import { sidebarModule } from './shared/sidebar/sidebar.module';
-import { RoutingModule } from './shared/routing.module';
+import { RoutingModule } from './routing.module';
+import { FeaturesModule } from './features/features.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -13,10 +16,12 @@ import { RoutingModule } from './shared/routing.module';
   ],
   imports: [
     BrowserModule,
-    FormGastoModule,
     sidebarModule,
+    BrowserAnimationsModule,
     CardModule,
-    RoutingModule
+    RoutingModule,
+    FeaturesModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
