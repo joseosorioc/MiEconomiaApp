@@ -4,7 +4,7 @@ import { Sort } from "../pageable/Sort.interface";
 
 
 export interface DetalleResponseInterface{
-  content:          Detalle ;
+  content:          Detalle [] ;
   pageable:         Pageable;
   totalPages:       number;
   last:             boolean;
