@@ -5,17 +5,23 @@ import { CardModule } from 'primeng/card';
 import {CalendarModule} from 'primeng/calendar';
 import { ReactiveFormsModule } from '@angular/forms';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {TableModule} from 'primeng/table';
+import {DialogModule} from 'primeng/dialog';
+import { TipoCaracteristicaPipe } from 'app/core/pipes/tipoCaracteristica.pipe';
 
 @NgModule({
   declarations: [
-    FormGastoComponent
+    FormGastoComponent,
+    TipoCaracteristicaPipe
   ],
   imports: [
     CommonModule,
     CardModule,
     CalendarModule,
     ReactiveFormsModule,
-    InputNumberModule
+    InputNumberModule,
+    TableModule,
+    DialogModule
 
   ],
   exports:[
