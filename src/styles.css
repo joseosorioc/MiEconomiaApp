@@ -23,3 +23,9 @@
 .p-datatable .p-datatable-thead > tr > th {
   text-align: center !important;
 }
+
+/*SELECTS AND INPUTS*/
+
+select, input{
+  font-family: var(--font-family);
+}
