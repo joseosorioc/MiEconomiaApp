@@ -6,3 +6,26 @@
   box-sizing: border-box;
 }
 
+/*P-DATEPICKER STYLES*/
+.p-datepicker table td {
+  padding: 4px 5px 0px !important;
+}
+
+.p-datepicker table td>span {
+  width: 30px !important;
+  height: 20px !important;
+  font-size: 16px !important;
+  border-radius: 0px !important;
+}
+
+/*DATATABLES STYLES*/
+
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: center !important;
+}
+
+/*SELECTS AND INPUTS*/
+
+select, input{
+  font-family: var(--font-family);
+}
