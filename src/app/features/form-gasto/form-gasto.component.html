@@ -60,8 +60,10 @@ iconPos="right"
       <div class="formgrid grid">
           <div class="field col-12 md:col-6">
               <label for="date" style="margin-left: 0.8rem;">Date</label>
-              <p-calendar [showIcon]="true" id="date" name="date" formControlName="date" [style]="{'width':'25rem'}" class="w-full"
-               dateFormat="dd/mm/yy"></p-calendar>
+              <p-calendar [showIcon]="true" id="date" name="date" formControlName="date" [style]="{'width':'30rem'}" class="w-full"
+               dateFormat="dd/mm/yy" [required]="true" ></p-calendar>
+               <small  class="text-red-500 text-xs" *ngIf="formIncomesOrExpenses.controls['date'].errors?.['required']
+                                                     && formIncomesOrExpenses.controls['date'].touched" >Please, add date. </small>
           </div>
 
           <div class="field col-12 md:col-6">
@@ -69,50 +71,90 @@ iconPos="right"
               <p-inputNumber id="amount" [style]="{'width':'30rem'}" [showButtons]="true" class="w-full" buttonLayout="horizontal"
                inputId="amount" spinnerMode="horizontal" [step]="500" decrementButtonClass="p-button-danger"
                incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" formControlName="amount"
-               decrementButtonIcon="pi pi-minus" mode="currency" currency="COP" >
+               decrementButtonIcon="pi pi-minus" mode="currency" currency="COP">
               </p-inputNumber>
+              <small class="text-red-500 text-xs" *ngIf="formIncomesOrExpenses.controls['amount'].errors?.['required']
+                                                        && formIncomesOrExpenses.controls['amount'].touched">Please, add amount.  </small>
 
           </div>
           <div class="field col-12 md:col-6">
             <!-- agregar selector -->
               <label for="category">Category</label>
               <select id="category" formControlName="category"
-               class="w-full text-base text-color surface-overlay p-2 border-1
+               class="w-full text-base text-color surface-section p-2 border-1
                 border-solid surface-border border-round outline-none
-                 focus:border-primary" style="appearance: auto" >
+                 focus:border-primary " style="appearance: auto;"
+                 [ngClass]="{'error' : (formIncomesOrExpenses.controls['category'].errors?.['required']
+                 || formIncomesOrExpenses.controls['category'].errors?.['pattern'])
+                 && formIncomesOrExpenses.controls['category'].touched }">
+
                     <option  *ngFor="let category of categories" [value]="category.idCategoria" >
-                      {{category.nombre}}
+                      {{category.nombre | titlecase }}
                     </option>
+
               </select>
+
+              <small class="text-red-500 text-xs" *ngIf="(formIncomesOrExpenses.controls['category'].errors?.['required']
+                                                        || formIncomesOrExpenses.controls['category'].errors?.['pattern'])
+                                                        && formIncomesOrExpenses.controls['category'].touched">Please, add category.  </small>
+
           </div>
 
           <div class="field col-12 md:col-6">
               <label for="account">Account</label>
-              <select id="account" formControlName="account" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
-                <option>Cash</option>
-                <option>Cards</option>
-                <option>Accounts</option>
+              <select id="account" formControlName="account"
+              class="w-full text-base text-color surface-section p-2 border-1
+              border-solid surface-border border-round outline-none
+              focus:border-primary" style="appearance: auto"
+              [ngClass]="{'error': ( formIncomesOrExpenses.controls['account'].errors?.['required']
+              || formIncomesOrExpenses.controls['account'].errors?.['pattern'])
+              && formIncomesOrExpenses.controls['account'].touched }"  >
+               <option *ngFor="let fuente of fuentes" [value]="fuente.idFuente" >
+                {{fuente.nombre | titlecase }}
+               </option>
             </select>
+
+            <small class="text-red-500 text-xs" *ngIf="( formIncomesOrExpenses.controls['account'].errors?.['required']
+                                                      || formIncomesOrExpenses.controls['account'].errors?.['pattern'])
+                                                      && formIncomesOrExpenses.controls['account'].touched">Please, add Account.  </small>
           </div>
 
            <div class="field col-12 md:col-12">
             <label for="type">Type</label>
-            <select id="type" formControlName="type" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
-                  <option>Income</option>
-                  <option>Expense</option>
+            <select id="type" formControlName="type" class="w-full text-base text-color surface-section p-2 border-1
+             border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"
+             [ngClass]="{'error' : (formIncomesOrExpenses.controls['type'].errors?.['required']
+                                   || formIncomesOrExpenses.controls['type'].errors?.['pattern'])
+                                   && formIncomesOrExpenses.controls['type'].touched }" >
+                  <option *ngFor="let item of typesDetail" [value]="item.value"> {{ item.label | titlecase }}</option>
+
            </select>
+
+           <small class="text-red-500 text-xs" *ngIf="(formIncomesOrExpenses.controls['type'].errors?.['required']
+                                                      || formIncomesOrExpenses.controls['type'].errors?.['pattern'])
+                                                      && formIncomesOrExpenses.controls['type'].touched">Please, add Type.  </small>
+
           </div>
 
           <div class="field col-12 md:col-12">
             <label for="note">Note</label>
-            <textarea id="note" type="text" name="note" formControlName="note" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+            <textarea id="note" type="text" name="note" formControlName="note" rows="4"
+            class="text-base text-color surface-section p-2 border-1 border-solid
+             surface-border border-round appearance-none outline-none
+             focus:border-primary w-full" [required]="true"
+             [ngClass]="{'error' : formIncomesOrExpenses.controls['note'].errors?.['required']
+             && formIncomesOrExpenses.controls['note'].touched }"></textarea>
+             <small class="text-red-500 text-xs" *ngIf="formIncomesOrExpenses.controls['note'].errors?.['required']
+                                                     &&  formIncomesOrExpenses.controls['note'].touched">Please, add note. </small>
           </div>
+
 
       </div>
   </div>
 
-        <button pButton type="button" label="Save" class="p-button-primary mt-1"
-         icon="pi pi-save" style="width: 15rem; margin-left: 18rem;" iconPos="right"></button>
+    <button pButton type="submit" label="Save" class="p-button-primary mt-2"
+    icon="pi pi-save" style="width: 15rem; margin-left: 18rem;"
+    iconPos="right" (click)="guardarNuevoDetalle()"></button>
 
   </form>
 </div>
