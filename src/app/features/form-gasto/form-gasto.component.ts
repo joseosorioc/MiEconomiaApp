@@ -35,11 +35,11 @@ export class FormGastoComponent implements OnInit {
 
      this.formIncomesOrExpenses = this.fb.group({
         date: ['', [Validators.required ] ],
-        amount: [ '', Validators.required ],
-        category: [ '', [Validators.required, Validators.pattern(/^[A-Za-z1-9]+$/g)]  ],
-        account: [ '', [Validators.required, Validators.pattern(/^[A-Za-z1-9]+$/g)]  ],
-        type: [ '',[ Validators.required, Validators.pattern(/^[A-Za-z1-9]+$/g)]  ],
-        note: [ '', [Validators.required, Validators.maxLength] ]
+        amount: [ '', Validators.required ], //"^(-?.*[A-Za-z1-9])\d*\.?\d*$"
+        category: [ '', [Validators.required, Validators.pattern("^[1-9a-zA-Z]+$")]  ],
+        account: [ '', [Validators.required, Validators.pattern("^[1-9a-zA-Z]+$")]  ],
+        type: [ '',[ Validators.required, Validators.pattern("^[1-9a-zA-Z]+$")]  ],
+        note: [ '', [Validators.required, Validators.maxLength(50)] ]
      });
    }
 
@@ -72,6 +72,7 @@ export class FormGastoComponent implements OnInit {
 
   guardarNuevoDetalle(){
 
+    console.log(this.formIncomesOrExpenses)
 
     if(this.formIncomesOrExpenses.status === 'VALID'){
 
